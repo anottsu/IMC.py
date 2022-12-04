@@ -1,13 +1,16 @@
 def cadastro():
     nome = input("Nome: ").title()
     idade = input("Idade: ")
-    while True: # Continuaremos tentantoa até o usuário inserir corretamente o valor.
-        try: # Esquema try, except para lidar com erro.
-            peso = float(input("Peso (ex: 65.2): ").replace(",", ".")) # Caso o usuário use vírgula, dará erro na conversão para float. Usamos o replace para garantir o uso do '.'.
-        except: 
+    while True:  # Continuaremos tentantoa até o usuário inserir corretamente o valor.
+        try:  # Esquema try, except para lidar com  o erro.
+            # Caso o usuário use vírgula, dará erro na conversão para float. Usamos o replace para garantir o uso do '.'.
+            peso = float(input("Peso (ex: 65.2): ").replace(",", "."))
+        except:
             print("Houve um erro ao interpretar o seu peso. Tente novamente.")
-            continue # Fará com que o loop volte do início, ou seja, vai solicitar denovo o peso do usuário.
-        break # Se não houver erro, o loop é quebrado e o código continua na execução normal.
+            # Fará com que o loop volte do início, ou seja, vai solicitar denovo o peso do usuário.
+            continue
+        # Se não houver erro, o loop é quebrado e o código continua na execução normal.
+        break
     while True:
         try:
             altura = float(input("Altura (ex: 1.70): ").replace(",", "."))
@@ -17,6 +20,7 @@ def cadastro():
         break
     imc = round(peso / (altura ** 2), 1)
     return [nome, idade, peso, altura, imc]
+
 
 def classificar_imc(imc):
     if imc < 18.5:
@@ -29,6 +33,7 @@ def classificar_imc(imc):
         return "Obesidade"
     else:
         return "Obesidade grave"
+
 
 print("""
 ---------------------------------------------
